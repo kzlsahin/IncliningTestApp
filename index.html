@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <title>Meyil Tecrübesi</title>
+    <meta name="author" content="Mustafa ŞENTÜRK 9901 Dnz. Uzm.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body >
+    <div id="like_button_container"></div>
+
+    <div id="pendulumFrame"></div>
+
+
+    <div id="pendulum-input">
+        <h3 class="pendulum-label">Pendulum Bilgileri</h3>
+        <table class="pendulum-deflaction-table input-table">
+            <tr>
+                <th colspan="3">Hareket 1</th>
+            </tr>
+            <tr>
+                <td>Şakül Sapması</td>
+                <td><input type="number"></td>
+                <td>mm</td>
+            </tr>
+            <tr>
+                <th>Şakül Boyu</th>
+                <td><input type="number"></td>
+                <td>mm</td>
+            </tr>
+
+        </table>
+
+</div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+    <!-- Load our React component. -->
+    <script type="text/babel" src="like_button.js"></script>
+    <script type="text/babel" src="weightShifts.js"></script>
+</body>
+
+</html>

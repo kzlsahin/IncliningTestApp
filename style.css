@@ -1,0 +1,63 @@
+#pendulumFrame {
+    position: absolute;
+    top:10vh;
+    padding: 0.8em;
+    width: 96%;
+    margin: auto;
+    border: 1px solid black;
+    height: 90vh;
+    overflow: scroll;
+    
+
+}
+
+.pendulum-container {
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.pendulum{
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.8em;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+.pendulum-label{
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.3em;
+    cursor: pointer;
+    
+    
+}
+.pendulum-table{
+    border:double darkred 2px;
+    margin: auto;
+    margin-top: 2em;
+    width: auto;
+    cursor: pointer;
+}
+
+.pendulum-table tr {
+    width: 100%;
+}
+
+.pendulum-table td {
+    width: 30%;
+    min-width: fit-content;
+    height: 1.4em;
+}
+
+#pendulum-input {
+    background-color: burlywood;
+    position: absolute;
+    top: 0.2vh;
+    left:-100vw;
+    transition: all ease-in-out 0.5s;
+}
