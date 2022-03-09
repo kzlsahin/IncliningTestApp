@@ -7,43 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
     <link href="style.css" rel="stylesheet" type="text/css">
-
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link href="style-weightFrame.v1.css" rel="stylesheet" type="text/css">
+    <link href="style-pendulum.v1.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+    <script src="chart.js"></script>
 </head>
 
-<body >
-    <div id="like_button_container"></div>
+<body>
 
-    <div id="pendulumFrame"></div>
+    <div class="main-frame">
+        <lable for="inp-displacement">Deplasman:</lable>
+        <input name="inp-displacement" onBlur="data.shipValues.setDisplacement(event)" values="0" type="number"/>
+        <button onclick="pageFrameReactNodes.page_weightshifts.openNode()">Test Ağırlıkları</button>
+        <button onclick="pageFrameReactNodes.page_pendulums.openNode()">Sarkaç Bilgileri</button>
+        <button onclick="drawPendulumGraph(1);">Sarkaç Grafiği</button>
+    </div>
+    <div >
+        <canvas id="pendulum-chart-1" ></canvas>
+        <canvas  id="pendulum-chart-2" ></canvas>
+    </div>
+    <div id="page_testweights" class="pages"></div>
 
+    <div id="page_pendulum" class="pages"></div>
 
-    <div id="pendulum-input">
-        <h3 class="pendulum-label">Pendulum Bilgileri</h3>
-        <table class="pendulum-deflaction-table input-table">
-            <tr>
-                <th colspan="3">Hareket 1</th>
-            </tr>
-            <tr>
-                <td>Şakül Sapması</td>
-                <td><input type="number"></td>
-                <td>mm</td>
-            </tr>
-            <tr>
-                <th>Şakül Boyu</th>
-                <td><input type="number"></td>
-                <td>mm</td>
-            </tr>
-
-        </table>
-
-</div>
 
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
     <!-- Load our React component. -->
-    <script type="text/babel" src="like_button.js"></script>
+    <script type="text/babel" src="dataHandler.js"></script>
+    <script type="text/babel" src="mainPage.js"></script>
+    <script type="text/babel" src="pageFrames.js"></script>
     <script type="text/babel" src="weightShifts.js"></script>
+     <script type="text/babel" src="pendulums.js"></script>
 </body>
 
 </html>
