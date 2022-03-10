@@ -16,11 +16,11 @@
 <body>
 
     <div class="main-frame">
-        <lable for="inp-displacement">Deplasman:</lable>
+        <lable for="inp-displacement">DİSPLACEMENT:</lable>
         <input name="inp-displacement" onBlur="data.shipValues.setDisplacement(event)" values="0" type="number"/>
-        <button onclick="pageFrameReactNodes.page_weightshifts.openNode()">Test Ağırlıkları</button>
-        <button onclick="pageFrameReactNodes.page_pendulums.openNode()">Sarkaç Bilgileri</button>
-        <button onclick="drawPendulumGraph(1);">Sarkaç Grafiği</button>
+        <button onclick="pageFrameReactNodes.page_weightshifts.openNode()">Test Weights</button>
+        <button onclick="pageFrameReactNodes.page_pendulums.openNode()">Pendulums</button>
+        <button onclick="drawPendulumGraph(1);" class="graph-drawer">Draw Pendulum Graphs</button>
     </div>
     <div >
         <canvas id="pendulum-chart-1" ></canvas>

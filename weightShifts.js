@@ -40,11 +40,16 @@ class WeightFrame extends React.Component {
     render() {
         return (
             <div name={this.name} className={this.state.classNames + this.state.isOpen}>
-                <h3>Ağırlıklar</h3>
+                <h3>WEIGHTS</h3>
                 <ClosingCross parent={this.name} />
                 <div className="inner-frame">
+                    <WeigthInputTable />
+
                     <WeightTable parent={this.name} />
-                    <MomentsTable /><WeigthInputTable />
+                    <div className="foot-note">
+                        <p >*Distance from inital points. Positive to starboard side (negative, if the movement is from starboard to port). </p>
+                    </div>
+                    <MomentsTable />
                 </div>
             </div>
 
@@ -95,7 +100,7 @@ class WeightTable extends React.Component {
 
 
         this.headers.push(
-            <th key="konumlar">Konumlar</th>
+            <th key="konumlar">Movement</th>
         );
 
         for (let i = 1; i < this.weightNumber + 1; i++) {
@@ -129,7 +134,7 @@ class WeightTable extends React.Component {
                 <thead>
                     <tr>
                         <th></th>
-                        <th colSpan={this.weightNumber}>Ağırlıklar</th>
+                        <th colSpan={this.weightNumber}>Weight Positions*</th>
                     </tr>
                     <tr>
                         {this.headers}
@@ -250,8 +255,8 @@ class MomentsTable extends React.Component {
             <table className="moments-table" onClick={this.handleClick}>
                 <thead>
                     <tr>
-                        <th>Momentler</th>
-                        <th>Hareketler</th>
+                        <th>Moments</th>
+                        <th>Movement</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -280,14 +285,17 @@ class WeigthInputTable extends React.Component {
     }
 
     handleClick(e) {
+        this.setState(
+            { initValues: this.state.weights },
+        )
         e.target.value = "";
     }
 
     updateValues() {
         this.setState(
             {
-                    type: "number",
-                    inputDisplay: "block",
+                type: "number",
+                inputDisplay: "block",
                 weights: data.testWeightData.weights,
             }
         );
@@ -296,14 +304,27 @@ class WeigthInputTable extends React.Component {
     }
 
     handleInputChange(e) {
-        let weights = this.state.weights;
+
         let index = Number(e.target.name);
+
+        if (e.target.value == "") {
+
+            e.target.value = this.state.weights[index]
+
+            return;
+
+        }
+
         let newValue = Number(e.target.value);
-        weights[index] = newValue;
-        data.testWeightData.setWeights(weights);
+
+        this.state.weights[index] = newValue;
+
+        data.testWeightData.setWeights(this.state.weights);
+
         this.setState({
-            weights: weights,
+            weights: this.state.weights,
         });
+
         weightFrameNode.onValuesChange(this);
     }
 

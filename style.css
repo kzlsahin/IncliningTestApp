@@ -1,3 +1,17 @@
+H3 {
+    text-align: center;
+}
+
+.foot-note {
+    margin-top: 0vh;
+    margin-bottom: 1vh;
+}
+
+.foot-note p{
+    margin-top: 0.2vh;
+    margin-bottom: 0.2vh;
+}
+
 input {
     font-size: large;
 }
@@ -30,4 +44,8 @@ button {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+}
+
+.graph-drawer {
+    background-color: rgb(199, 233, 171);
 }

@@ -78,17 +78,6 @@
     border: solid 1px gray;
 }
 
-.pendulum-input {
-    display: block;
-    position:fixed;
-    background-color:burlywood;
-    width:100vw;
-    max-width: 150em;
-    min-height: 80vh;
-    
-}
-
-
 .div-open {
     left: 0vw;
 }
@@ -98,12 +87,29 @@
     left: -110vw;
 }
 
-.pendulum-input .inner-frame{
-    background-color: burlywood;
+
+.pendulum-input {
+    display: block;
+    position:fixed;
+    background-color:rgba(222, 184, 135, 0.486);
+    width:100vw;
+    max-width: 150em;
+    height: 100vh;
+    
+    
+}
+
+
+
+.inner-frame{
+    padding:2.5%;
+    width: 90%;
+    margin:auto;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .pendulum-input h3{
@@ -131,6 +137,22 @@
     margin: 2em;
 }
 
+.pendulum-input .inner-frame{
+    background-color:rgb(222, 184, 135);
+    height: 60vh;
+    top:15vh;
+}
+
+
+.pendulum-deflaction-table {
+    font-size: 14pt;
+    max-width: 850px;
+
+}
+
+.pendulum-deflaction-table input {
+    text-align: right;
+}
 
 button:hover {
     border: double;
