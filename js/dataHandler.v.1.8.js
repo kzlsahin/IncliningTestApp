@@ -303,10 +303,6 @@ function updateDataBuffer() {
 
     sessionStorage.setItem('lastDataState', dat);
 
-
-
-    let resp = fetchData('readDB.php', dat);
-
         console.log("buffer updated");
 }
 
