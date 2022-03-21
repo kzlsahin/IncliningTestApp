@@ -4,42 +4,105 @@
 <head>
     <title>Meyil Tecrübesi</title>
     <meta name="author" content="Mustafa ŞENTÜRK 9901 Dnz. Uzm.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1905050">
     <meta charset="UTF-8" />
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link href="style-weightFrame.v1.css" rel="stylesheet" type="text/css">
-    <link href="style-pendulum.v1.css" rel="stylesheet" type="text/css">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="icon" HREF="images/icon-192.png">
+
+    <link href="css/style.v.1.6.css" rel="stylesheet" type="text/css">
+    <link href="css/test-weights.v.1.6.css" rel="stylesheet" type="text/css">
+    <link href="css/pendulums.v.1.3.css" rel="stylesheet" type="text/css">
+    <link href="css/print.v.1.6.css" rel="stylesheet" type="text/css">
+
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
-    <script src="chart.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/dataHandler.v.1.8.js"></script>
+    <script src="js/printer.v.1.3.js"></script>
+    
 </head>
 
 <body>
+    <div class="nav-bar not-print" ">
+        <details id=" main-menu" class="menu-container dropdown">
+        <summary class="btn-menu">MENU</summary>
+        <div class="menu-list">
+            <button onclick="refreshApp()" class="menu-item">New Project</button>
+            <button onclick="getFullscreen()" class="menu-item">Fullscreen Mode</button>
+            <button onclick="saveDataToLocal()" class="menu-item">Save Project</button>
+            <button onclick="openFilePicker()" class="menu-item">Load Saved Project</button>            
+            <button class="menu-item" onclick="window.print()">Print Report as PDF</button>
+            <button id="btn-install-pwa" style="display:none" class="menu-item">Install App</button>
+        </div>
 
-    <div class="main-frame">
-        <lable for="inp-displacement">DİSPLACEMENT:</lable>
-        <input name="inp-displacement" onBlur="data.shipValues.setDisplacement(event)" values="0" type="number"/>
-        <button onclick="pageFrameReactNodes.page_weightshifts.openNode()">Test Weights</button>
-        <button onclick="pageFrameReactNodes.page_pendulums.openNode()">Pendulums</button>
-        <button onclick="drawPendulumGraph(1);" class="graph-drawer">Draw Pendulum Graphs</button>
+        </details>
+
+        <div class="navbar-right"><span id="timestamp"></span></div>
     </div>
-    <div >
-        <canvas id="pendulum-chart-1" ></canvas>
-        <canvas  id="pendulum-chart-2" ></canvas>
+    <div class="page-cover">
+        <div class="main-frame">
+
+            <h1>INCLINING TEST REPORT</h1>
+
+            <h2 class="project-name" id="project-name"></h2>
+
+            <button onclick="closables['prinsiple-dimensions-page'].openNode()" class="btn-page">Principle Particulars</button>
+            <button onclick="pageFrameReactNodes.page_weightshifts.openNode()" class="btn-page">Test Weights</button>
+            <button onclick="pageFrameReactNodes.page_pendulums.openNode()" class="btn-page">Pendulums</button>
+            <button onclick="closables['pendulum-charts-page'].openNode()" class="graph-drawer btn-page">Pendulum Charts</button>
+            <button onclick="closables['weight-calculations-page'].openNode()" class="btn-page">Weigth Calculations</button>
+
+            <input type="file" id="filePicker" class="hidden" name="filename" accept=".json">
+
+            <img class="print-only" src="images/Resim1.jpg" alt="" style="width:60%;">
+
+            <p class="print-only"><span class="date"></span> </p>
+            <article class="company-name print-only">
+                <p>SOYASLAN DENİZCİLİK</p>
+                <p>San. ve Tic. Ltd. Şti.</p>
+            </article>
+        </div>
     </div>
+
+
+    <div class="page-footer">
+        <img src="images/SoyaslanLogo.png" class="logo footer-logo" />
+        <p>
+            Sanayi Mah. Teknopark Blv. No:1/1A-308 34906 Pendik / Istanbul - Turkey</p>
+        <p>Tel. +90 216 494 14 12 Fax. +90 216 494 14 13</p>
+        <p><span class="link-text">www.soyaslanmarine.com</span> </p>
+    </div>
+    </div>
+
+    <div id="prinsiple-dimensions-page" class="pages"></div>
     <div id="page_testweights" class="pages"></div>
 
     <div id="page_pendulum" class="pages"></div>
 
+    <div id="page_pendulum-charts" class="pages"></div>
 
+    <div id="weight-calculations-page" class="pages"></div>
+
+
+
+    <script src="react-pages/mainPage.v.1.3.js"></script>
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
     <!-- Load our React component. -->
-    <script type="text/babel" src="dataHandler.js"></script>
-    <script type="text/babel" src="mainPage.js"></script>
-    <script type="text/babel" src="pageFrames.js"></script>
-    <script type="text/babel" src="weightShifts.js"></script>
-     <script type="text/babel" src="pendulums.js"></script>
+    <script>
+        document.getElementById("project-name").innerText = data.shipValues.name;
+    </script>
+
+    <script type="text/babel" src="react-pages/pageFrames.v.1.3.js"></script>
+    <script type="text/babel" src="react-pages/principleDimensions.v.1.1.js"></script>
+    <script type="text/babel" src="react-pages/weightShifts.v.1.4.js"></script>
+    <script type="text/babel" src="react-pages/pendulums.v.1.3.js"></script>
+    <script type="text/babel" src="react-pages/pendulum-charts.v.1.3.js"></script>
+    <script type="text/babel" src="react-pages/weightCalculations.v.1.0.js"></script>
 </body>
 
 </html>

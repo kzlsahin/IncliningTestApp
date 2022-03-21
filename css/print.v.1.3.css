@@ -1,0 +1,98 @@
+@media print {
+    @page {
+        size: A4;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left:1in;
+        margin-right: 1in;
+        padding-top: 0.5in;
+        padding-bottom: 0.5in;
+      }
+
+
+      * {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none; 
+      }
+
+      *::-webkit-scrollbar{
+          display : none;
+      }
+    
+      .not-print, .closing-cross {
+          display: none;
+      }
+
+      .print-only {
+          display: block;
+      }
+
+      .page-cover {
+          height: 9.8in;
+          background-color:white;
+          color: blue;
+      }
+
+      .main-frame{
+          height: 100%;
+          justify-content:space-evenly;
+      }
+
+      .page-footer {
+          background-color: white;
+          height: 1in;
+      }
+
+      .link-text {
+          color: blue;
+      }
+
+      .company-name p {
+        width: 100%;
+        text-align: center;
+      }
+
+    html {
+        height: fit-content;
+        overflow: auto;
+    }
+
+    button {
+        display :none;
+    }
+
+    h2 {
+        font-size: 14pt;
+    }
+
+    table {
+        margin: auto;
+        page-break-inside: avoid;
+        font-size: 8pt;
+        border: 1px solid grey;
+    }
+
+    table input {
+        border: none;
+        font-size: 8pt;
+    }
+
+    .pendulum {
+        position: relative;
+        page-break-inside: avoid;
+        border: none;
+        -webkit-appearance: none;
+    }
+    .pendulum-table{
+        border: 1px solid grey;
+    }
+    .pages {
+        page-break-before: always;
+    }
+    
+    .print-page {
+        position: static !important;
+        top: 0%;
+        left: 0%;
+    }
+}

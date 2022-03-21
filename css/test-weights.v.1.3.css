@@ -1,0 +1,50 @@
+.weight-frame {
+    background-color: white;
+}
+
+.weight-table {
+    margin-top:2em;
+}
+
+
+.weight-pos-cell {
+    border: solid 1px gray;
+    width: 95%;
+    min-width: 2em;
+    height: 100%;
+    text-align: center;
+    margin: 0;
+    height: 2em;
+    cursor: pointer;
+}
+
+
+.moments-table {
+    margin:1em;
+    width: auto;
+    max-width: 20em;;
+}
+
+
+.moments-table th{
+    width: fit-content;
+    text-align: center;
+}
+
+.moments-table td {
+    
+    text-align: center;
+    width: 6em;
+}
+.moments-table tbody tr td:first-child{
+    width: 1em;
+}
+.moments-table thead tr th:first-child{
+    width: 1em;
+}
+
+@media only screen and (max-width : 780px) {
+    .weight-frame table * {
+        font-size: 10pt;
+    }
+}
